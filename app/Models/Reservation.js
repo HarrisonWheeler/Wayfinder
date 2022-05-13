@@ -14,51 +14,52 @@ export class Reservation {
     this.cost = data.cost || 0
   }
 
+  // TODO need to figure out how to best format this
   get Template() {
     return /*html*/ `
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <div class="container-fluid rounded bg-light">
-      <div class="row p-2">
-        <div class="col-1">
-          <h6>Type</h6>
+    <div class="tab-pane fade show active" id="nav-home-${this.tripId}" role="tabpanel" aria-labelledby="nav--${this.tripId}-tab">
+      <div class="container-fluid rounded bg-light">
+        <div class="row p-2">
+          <div class="col-1">
+            <h6>Type</h6>
+          </div>
+          <div class="col-3">
+            <h6>Name</h6>
+          </div>
+          <div class="col-3">
+            <h6>Confirmation Number</h6>
+          </div>
+          <div class="col-3">
+            <h6>Address</h6>
+          </div>
+          <div class="col-1">
+            <h6>Date</h6>
+          </div>
+          <div class="col-1">
+            <h6>Cost</h6>
+          </div>
         </div>
-        <div class="col-3">
-          <h6>Name</h6>
-        </div>
-        <div class="col-3">
-          <h6>Confirmation Number</h6>
-        </div>
-        <div class="col-3">
-          <h6>Address</h6>
-        </div>
-        <div class="col-1">
-          <h6>Date</h6>
-        </div>
-        <div class="col-1">
-          <h6>Cost</h6>
+        <div class="row bg-secondary rounded shadow p-2 mb-2 align-items-center" id="reservations">
+          <div class="col-1">
+            <i class="mdi ${this.getIcon()} mdi-24px"></i>
+          </div>
+          <div class="col-3">
+            <p>${this.name}</p>
+          </div>
+          <div class="col-3">
+            <p>${this.confirmationNumber}</p>
+          </div>
+          <div class="col-3">
+            <p>${this.address}</p>
+          </div>
+          <div class="col-1">
+            <p>${this.date}</p>
+          </div>
+          <div class="col-1">
+            <p>${this.cost}</p>
+          </div>
         </div>
       </div>
-      <div class="row bg-secondary rounded shadow p-2 mb-2 align-items-center" id="reservations">
-        <div class="col-1">
-          <i class="mdi ${this.getIcon()} mdi-24px"></i>
-        </div>
-        <div class="col-3">
-          <p>${this.name}</p>
-        </div>
-        <div class="col-3">
-          <p>${this.confirmationNumber}</p>
-        </div>
-        <div class="col-3">
-          <p>${this.address}</p>
-        </div>
-        <div class="col-1">
-          <p>${this.date}</p>
-        </div>
-        <div class="col-1">
-          <p>${this.cost}</p>
-        </div>
-      </div>
-    </div>
   </div>
     `
   }
