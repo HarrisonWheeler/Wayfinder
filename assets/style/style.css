@@ -5,3 +5,17 @@
   font-family: 'Vibur', cursive;
   font-size: 36px;
 }
+
+body{
+  font-family: 'Merriweather', serif;
+  font-family: 'Vibur', cursive;
+  font-family: 'Yaldevi', sans-serif;
+}
+
+h6{
+  line-height: 31.58px;
+}
+
+p{
+  margin: 0;
+}
