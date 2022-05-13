@@ -1,3 +1,4 @@
+import { Trip } from "./Models/Trip.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
@@ -5,7 +6,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = []
 
-  trips = []
+  trips = [new Trip({ title: "Las Vegas GP" }), new Trip({ title: "Spanish GP" })]
   reservations = []
 }
 

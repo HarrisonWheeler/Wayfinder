@@ -1,4 +1,4 @@
-import { generateId } from "../Utils/generateId";
+import { generateId } from "../Utils/generateId.js";
 
 export class Trip {
   constructor(data) {
