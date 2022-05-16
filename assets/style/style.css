@@ -16,6 +16,10 @@ h6{
   line-height: 31.58px;
 }
 
+.reservation-height{
+  height: 75vh;
+}
+
 p{
   margin: 0;
 }

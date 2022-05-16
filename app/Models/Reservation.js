@@ -1,4 +1,4 @@
-import { generateId } from "../Utils/generateId"
+import { generateId } from "../Utils/generateId.js"
 
 
 export class Reservation {
@@ -17,8 +17,7 @@ export class Reservation {
   // TODO need to figure out how to best format this
   get Template() {
     return /*html*/ `
-    <div class="tab-pane fade show active" id="nav-home-${this.tripId}" role="tabpanel" aria-labelledby="nav--${this.tripId}-tab">
-      <div class="container-fluid rounded bg-light">
+      <div class="container-fluid rounded bg-light reservation-height">
         <div class="row p-2">
           <div class="col-1">
             <h6>Type</h6>
@@ -60,7 +59,6 @@ export class Reservation {
           </div>
         </div>
       </div>
-  </div>
     `
   }
 
