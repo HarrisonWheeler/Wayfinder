@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { tripsService } from "../Services/TripsService.js";
+import { Pop } from "../Utils/Pop.js";
 
 
 function _drawTrips() {
@@ -13,27 +14,39 @@ function _drawTrips() {
   document.getElementById('nav-tabContent').innerHTML = contentTemplate
 }
 
-// NOTE this probably wont be needed with the current tab implementation
-// function _drawActiveTrip() {
-//   throw new Error("Function not implemented.");
-// }
-
 export class TripsController {
   constructor() {
     console.log('hello from the trips controller');
-    // ProxyState.on('activeTrip', _drawActiveTrip)
+    ProxyState.on('trips', _drawTrips)
     _drawTrips()
   }
 
   createTrip() {
-    window.event.preventDefault()
-    let form = window.event.target
-    console.log('form', form);
+    try {
+      window.event.preventDefault()
+      let form = window.event.target
+      console.log('form', form);
+      const newTrip = {
+        // @ts-ignore
+        title: form.title.value
+      }
+      tripsService.createTrip(newTrip)
+      // @ts-ignore
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('create-trip-modal')).hide()
+      Pop.toast('Trip Created!', 'success')
+      // @ts-ignore
+      form.reset()
+    } catch (error) {
+      console.error(error)
+      Pop.toast(error.message, 'error')
+    }
+
   }
 
+  // Probably dont need this
   setActiveTrip(tripId) {
     // TODO come back and fix text styling
-    tripsService.setActiveTrip(tripId)
+    // tripsService.setActiveTrip(tripId)
     // document.getElementById(`nav-${tripId}`).classList.add('text-dark', 'bg-light')
   }
 }

@@ -26,12 +26,11 @@
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-primary text-light no-select">
       <a class="navbar-brand ms-3" href="#">
-        <!-- TODO get wayfinder logo here -->
-        <span class="ms-2 nav-font">Wayfinder</span>
+        <i class="mdi mdi-ship-wheel mdi-36px text-light"></i>
+        <span class="ms-1 nav-font">Wayfinder</span>
       </a>
     </nav>
   </header>
-
 
   <main class="container-fluid bg-dark">
     <div class="row p-5">
@@ -54,28 +53,26 @@
     </div>
   </main>
 
-
   <!-- CREATE TRIP MODAL -->
+
   <div class="modal fade" id="create-trip-modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content bg-light">
-        <div class="modal-body text-center">
-          <!-- TODO text looks blue here on the figma? -->
-          <h2>New Vacation</h2>
-          <!-- TODO onblur for the trip title? -->
-          <h6 class="mb-0"><small id="vacation-title">title of your vacation</small></h6>
-          <form onsubmit="app.tripsController.createTrip()">
+        <form onsubmit="app.tripsController.createTrip()">
+          <div class="modal-body text-center">
+            <!-- TODO text looks blue here on the figma? -->
+            <h2>New Vacation</h2>
             <div class="form-group">
               <label for="title" aria-label="Title"></label>
               <input type="text" class="form-control bg-light" name="title" id="title" placeholder="Title..."
-                aria-placeholder="Title....">
+                aria-placeholder="Title...." required minlength="1">
             </div>
-          </form>
-        </div>
-        <div class="d-flex justify-content-center p-2 mb-2">
-          <button class="btn btn-primary py-0 px-4">Ok</button>
-          <button type="button" class="btn bg-grey py-0 px-3 ms-3" data-bs-dismiss="modal">Cancel</button>
-        </div>
+          </div>
+          <div class="d-flex justify-content-center p-2 mb-2">
+            <button class="btn btn-primary py-0 px-4">Ok</button>
+            <button type="button" class="btn bg-grey py-0 px-3 ms-3" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
