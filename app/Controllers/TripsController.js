@@ -13,19 +13,28 @@ function _drawTrips() {
   document.getElementById('nav-tabContent').innerHTML = contentTemplate
 }
 
-function _drawActiveTrip() {
-  throw new Error("Function not implemented.");
-}
+// NOTE this probably wont be needed with the current tab implementation
+// function _drawActiveTrip() {
+//   throw new Error("Function not implemented.");
+// }
 
 export class TripsController {
   constructor() {
     console.log('hello from the trips controller');
-    ProxyState.on('activeTrip', _drawActiveTrip)
+    // ProxyState.on('activeTrip', _drawActiveTrip)
     _drawTrips()
   }
 
+  createTrip() {
+    window.event.preventDefault()
+    let form = window.event.target
+    console.log('form', form);
+  }
+
   setActiveTrip(tripId) {
+    // TODO come back and fix text styling
     tripsService.setActiveTrip(tripId)
+    // document.getElementById(`nav-${tripId}`).classList.add('text-dark', 'bg-light')
   }
 }
 

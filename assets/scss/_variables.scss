@@ -5,9 +5,10 @@ $success: #00f867;
 $info: #cb0c9f;
 $warning: #fbcf33;
 $danger: #ea0606;
-$light: #F9F7F7;
+$light: #FEF5F1;
 $dark: #112D4E;
 $grey: #cbcbcb;
+
 
 $font-sans-serif: Open Sans;
 $font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -22,6 +23,7 @@ $colors: (
   "info": $info,
   "dark": $dark,
   "grey": $grey,
+  "light": $light,
 );
 
 $color-ranges: (
