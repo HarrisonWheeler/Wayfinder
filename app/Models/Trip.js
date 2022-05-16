@@ -11,7 +11,7 @@ export class Trip {
   get Button() {
     // TODO change active button bg color to bg-light
     return /*html*/ `
-    <button class="nav-link border-bottom-0 border-light" id="nav-${this.id}" data-bs-toggle="tab" data-bs-target="#nav-${this.id}-tab"
+    <button class="nav-link border-bottom-0 border-light me-1" id="nav-${this.id}" data-bs-toggle="tab" data-bs-target="#nav-${this.id}-tab"
     type="button" role="tab" aria-controls="nav-${this.id}" aria-selected="true">${this.title}</button>
     `
   }

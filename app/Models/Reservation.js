@@ -17,7 +17,7 @@ export class Reservation {
   // TODO need to figure out how to best format this
   get Template() {
     return /*html*/ `
-      <div class="container-fluid rounded bg-light reservation-height">
+      <div class="container-fluid rounded bg-light reservations-height-overflow">
         <div class="row p-2">
           <div class="col-1">
             <h6>Type</h6>
@@ -58,7 +58,43 @@ export class Reservation {
             <p>${this.cost}</p>
           </div>
         </div>
-      </div>
+       </div>
+      <hr>
+       <div class="container-fluid mt-2">
+        <div class="row align-items-center">
+            <div class="col-1">
+              <div class="form-group">
+                <input type="number" class="form-control bg-light" required>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group">
+                <input type="text" class="form-control bg-light" required>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group">
+                <input type="text" class="form-control bg-light" required>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group">
+                <input type="text" class="form-control bg-light" required>
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="form-group">
+                <input type="date" class="form-control bg-light" required>
+              </div>
+            </div>
+            <div class="col-1">
+              <div class="form-group">
+                <input type="number" class="form-control bg-light" required>
+              </div>
+            </div>
+           </div>
+        </div>
+       </div>
     `
   }
 
