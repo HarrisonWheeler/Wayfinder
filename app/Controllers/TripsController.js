@@ -18,6 +18,7 @@ export class TripsController {
   constructor() {
     console.log('hello from the trips controller');
     ProxyState.on('trips', _drawTrips)
+    ProxyState.on('reservations', _drawTrips)
     _drawTrips()
   }
 

@@ -1,9 +1,14 @@
+import { ProxyState } from "../AppState.js";
 import { reservationsService } from "../Services/ReservationsService.js";
 import { Pop } from "../Utils/Pop.js";
 
+function _drawReservations() {
+
+}
+
 export class ReservationsController {
   constructor() {
-    console.log('hello from the reservations controller');
+    ProxyState.on('reservations', _drawReservations)
   }
 
   createReservation(tripId) {
@@ -30,6 +35,8 @@ export class ReservationsController {
       reservationsService.createReservation(newReservation)
       Pop.toast('Reservation Created!', 'success')
       console.log('new reservation', newReservation)
+      // @ts-ignore
+      form.reset()
     } catch (error) {
       console.error(error)
       Pop.toast(error.message, 'error')
