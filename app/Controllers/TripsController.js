@@ -3,23 +3,30 @@ import { tripsService } from "../Services/TripsService.js";
 import { Pop } from "../Utils/Pop.js";
 
 
-function _drawTrips() {
+function _drawTabs() {
   // TODO need to fix these - all are selected
-  let buttonTemplate = ''
-  ProxyState.trips.forEach(t => buttonTemplate += t.Button)
-  document.getElementById('nav-tab').innerHTML = buttonTemplate
+  let tabsTemplate = ''
+  console.log('Trips in AppState', ProxyState.trips);
+  ProxyState.trips.forEach(t => tabsTemplate += t.Tabs)
+  document.getElementById('nav-tab').innerHTML = tabsTemplate
 
-  let contentTemplate = ''
-  ProxyState.trips.forEach(t => contentTemplate += t.Content)
-  document.getElementById('nav-tabContent').innerHTML = contentTemplate
+  let tabContentTemplate = ''
+  ProxyState.trips.forEach(t => tabContentTemplate += t.TabContent)
+  document.getElementById('nav-tabContent').innerHTML = tabContentTemplate
 }
+
+function _drawTrip() {
+  document.getElementById(`nav-${ProxyState.activeTrip.id}-tab`).innerHTML = ProxyState.activeTrip.TripReservations
+}
+
 
 export class TripsController {
   constructor() {
     console.log('hello from the trips controller');
-    ProxyState.on('trips', _drawTrips)
-    ProxyState.on('reservations', _drawTrips)
-    _drawTrips()
+    ProxyState.on('trips', _drawTabs)
+    ProxyState.on('activeTrip', _drawTrip)
+    ProxyState.on('reservations', _drawTrip)
+    _drawTabs()
   }
 
   createTrip() {
@@ -44,10 +51,8 @@ export class TripsController {
 
   }
 
-  // Probably dont need this
   setActiveTrip(tripId) {
-    // TODO come back and fix text styling
-    // tripsService.setActiveTrip(tripId)
+    tripsService.setActiveTrip(tripId)
     // document.getElementById(`nav-${tripId}`).classList.add('text-dark', 'bg-light')
   }
 }

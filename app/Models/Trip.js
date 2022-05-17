@@ -7,18 +7,27 @@ export class Trip {
     this.title = data.title
   }
 
-  get Button() {
+  // TODO setting active tab initially works with using isActive bool, but need to set other tabs back to not active
+  get Tabs() {
     // TODO change active button bg color to bg-light
     return /*html*/ `
     <button class="nav-link border-bottom-0 border-light me-1" id="nav-${this.id}" data-bs-toggle="tab" data-bs-target="#nav-${this.id}-tab"
-    type="button" role="tab" aria-controls="nav-${this.id}" aria-selected="true">${this.title}</button>
+    type="button" role="tab" aria-controls="nav-${this.id}" aria-selected="true" onclick="app.tripsController.setActiveTrip('${this.id}')">${this.title}</button>
     `
   }
 
-  get Content() {
+  // TODO thinking that we need to split out the content portion - draw the tabContent div, but only draw the inner content when drawing reservations
+
+  get TabContent() {
     return /*html*/ `
     <div class="tab-pane fade show" id="nav-${this.id}-tab" role="tabpanel" aria-labelledby="nav-${this.id}-tab">
-      <div class="container-fluid rounded bg-light reservations-height-overflow">
+    </div>
+    `
+  }
+
+  get TripReservations() {
+    return /*html*/ `
+    <div class="container-fluid rounded bg-light reservations-height-overflow">
         <div class="row p-2">
           <div class="col-1">
             <h6>Type</h6>
@@ -38,12 +47,11 @@ export class Trip {
           <div class="col-1">
             <h6>Cost</h6>
           </div>
-       </div>
-         ${this.Reservations}
-      </div>
-    <hr class="my-3">
-      ${this.ReservationForm}
+        </div>
+        ${this.Reservations}
     </div>
+    <hr class="my-3">
+   ${this.ReservationForm}
     `
   }
 

@@ -2,13 +2,9 @@ import { ProxyState } from "../AppState.js";
 import { reservationsService } from "../Services/ReservationsService.js";
 import { Pop } from "../Utils/Pop.js";
 
-function _drawReservations() {
-
-}
 
 export class ReservationsController {
   constructor() {
-    ProxyState.on('reservations', _drawReservations)
   }
 
   createReservation(tripId) {

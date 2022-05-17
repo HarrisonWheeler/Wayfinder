@@ -4,8 +4,11 @@ import { Trip } from "../Models/Trip.js";
 
 class TripsService {
   createTrip(newTrip) {
-    ProxyState.trips = [new Trip(newTrip), ...ProxyState.trips]
+    const trip = new Trip(newTrip)
+    ProxyState.trips = [...ProxyState.trips, trip]
+    ProxyState.activeTrip = trip
   }
+
   setActiveTrip(tripId) {
     let found = ProxyState.trips.find(t => t.id == tripId)
     ProxyState.activeTrip = found
