@@ -55,7 +55,19 @@ export class TripsController {
 
   setActiveTrip(tripId) {
     tripsService.setActiveTrip(tripId)
-    // document.getElementById(`nav-${tripId}`).classList.add('text-dark', 'bg-light')
+  }
+
+  async deleteTrip(tripId) {
+    try {
+      if (await Pop.confirm()) {
+        tripsService.deleteTrip(tripId)
+        Pop.toast('Trip Deleted!', 'success')
+      }
+      console.log(tripId);
+    } catch (error) {
+      console.error(error)
+      Pop.toast(error.message, 'error')
+    }
   }
 }
 

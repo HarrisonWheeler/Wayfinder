@@ -5,7 +5,7 @@ export class Trip {
   constructor(data) {
     this.id = data.id || generateId()
     this.title = data.title
-    this.notes = data.notes
+    this.notes = data.notes || ""
   }
 
   // HTML GETTERS
@@ -29,8 +29,8 @@ export class Trip {
   get TripReservations() {
     return /*html*/ `
     <div class="container-fluid bg-light reservations-height-overflow">
-        <div class="row p-2">
-          <div class="col-1">
+        <div class="row p-2 mt-2 d-none d-md-flex">
+          <div class="col-1 ">
             <h6>Type</h6>
           </div>
           <div class="col-3">
@@ -52,14 +52,27 @@ export class Trip {
         ${this.Reservations}
       </div>
     <hr class="my-3">
-    <div class="container">
+    <div class="container-fluid">
       ${this.ReservationForm}
-      <div class="row total-row mt-5">
-        <div class="col-3 offset-9 d-flex justify-content-end">
-        <h4 class="p-2 me-2">Total: $${this.TotalCost}</h4>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="form-group mt-2">
+            <textarea name="notes" id="notes" class="form-control bg-light" placeholder="Trip Notes Here..."
+            minlength="1" maxlength="250" required></textarea>
+          </div>
+       </div>
+      </div>
+      <div class="row justify-content-between mt-5">
+        <div class="col-3 d-flex align-items-center">
+          <i class="mdi mdi-delete mdi-24px selectable" onclick="app.tripsController.deleteTrip('${this.id}')"></i>
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+          <h4 class="p-2 me-2">Total: $${this.TotalCost}</h4>
         </div>
       </div>
+     </div>
     </div>
+
     `
   }
 
@@ -67,9 +80,9 @@ export class Trip {
     return /*html*/ `
     <form onsubmit="app.reservationsController.createReservation('${this.id}')">
      <div class="row align-items-center mt-2">
-         <div class="col-1">
+         <div class="col-2 col-md-1">
            <div class="form-group">
-             <select class="form-control bg-light" name="type">
+             <select class="form-control bg-light selectable" name="type">
                <option selected disabled>Type</option>
                <option value="hotel">Hotel</option>
                <option value="flight">Flight</option>
@@ -78,38 +91,34 @@ export class Trip {
              </select>
            </div>
          </div>
-         <div class="col-3">
+         <div class="col-5 col-md-3">
            <div class="form-group">
              <input type="text" name="name" class="form-control bg-light" minlength="1" max-length="50" placeholder="Name..." required>
            </div>
          </div>
-         <div class="col-3">
+         <div class="col-5 col-md-3">
            <div class="form-group">
              <input type="text" name="confirmationNumber" class="form-control bg-light" minlength="1" max-length="50" placeholder="Confirmation..." required>
            </div>
          </div>
-         <div class="col-3">
+         <div class="col-9 col-md-3 mt-2 mt-md-0">
            <div class="form-group">
              <input type="text" name="address" class="form-control bg-light" minlength="1" max-length="50" placeholder="Address..." required>
            </div>
          </div>
-         <div class="col-1">
+         <div class="col-3 col-md-1 mt-2 mt-md-0">
            <div class="form-group">
              <input type="date" name="date" class="form-control bg-light" placeholder="date" required>
            </div>
          </div>
-         <div class="col-1">
+         <div class="col-3 col-md-1 mt-2 mt-md-0">
            <div class="form-group">
              <input type="number" name="cost" class="form-control bg-light" placeholder="0" min="1" max="10000" required>
            </div>
          </div>
-         <div class="col-12 d-flex justify-content-end mt-3">
+         <div class="col-4 offset-5 offset-md-0 col-md-12 d-flex justify-content-end mt-3">
            <button class="btn border bg-light p-0 px-4">Add</button>
          </div>
-         <div class="col-12 col-md-6">
-
-         </div>
-        </div>
        </div>
      </form>
     `

@@ -26,8 +26,6 @@ export class ReservationsController {
         // @ts-ignore
         date: form.date.value,
         // @ts-ignore
-        notes: form.notes.value,
-        // @ts-ignore
         cost: form.cost.valueAsNumber
       }
       reservationsService.createReservation(newReservation)
@@ -35,6 +33,18 @@ export class ReservationsController {
       console.log('new reservation', newReservation)
       // @ts-ignore
       form.reset()
+    } catch (error) {
+      console.error(error)
+      Pop.toast(error.message, 'error')
+    }
+  }
+
+  async deleteReservation(reservationId) {
+    try {
+      if (await Pop.confirm()) {
+        reservationsService.deleteReservation(reservationId)
+        Pop.toast('Reservation Deleted!', 'success')
+      }
     } catch (error) {
       console.error(error)
       Pop.toast(error.message, 'error')

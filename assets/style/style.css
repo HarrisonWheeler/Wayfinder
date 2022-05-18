@@ -42,3 +42,8 @@ input{
 p{
   margin: 0;
 }
+
+.delete-reservation{
+  right: 0.5em;
+  top: 0.2em;
+}

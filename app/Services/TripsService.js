@@ -15,6 +15,11 @@ class TripsService {
     console.log('active trip', ProxyState.activeTrip);
   }
 
+  deleteTrip(tripId) {
+    ProxyState.trips = ProxyState.trips.filter(t => t.id !== tripId)
+    // TODO delete orphan data
+  }
+
 }
 
 export const tripsService = new TripsService()

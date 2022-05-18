@@ -14,25 +14,26 @@ export class Reservation {
 
   get Template() {
     return /*html*/ `
-        <div class="row bg-secondary rounded shadow p-2 mb-2 align-items-center" id="reservations">
-          <div class="col-1">
+        <div class="row bg-secondary rounded shadow p-2 mb-2 align-items-center mt-3 mt-md-0 position-relative" id="reservations">
+          <div class="col-1 col-md-1 p-0 p-md-2">
             <i class="mdi ${this.getIcon()} mdi-24px"></i>
           </div>
-          <div class="col-3">
+          <div class="col-8 col-md-3">
             <p>${this.name}</p>
           </div>
-          <div class="col-3">
+          <div class="col-3 col-md-3">
             <p>${this.confirmationNumber}</p>
           </div>
-          <div class="col-3">
+          <div class="col-8 col-md-3">
             <p>${this.address}</p>
           </div>
-          <div class="col-1">
+          <div class="col-4 col-md-1">
             <p>${this.date}</p>
           </div>
-          <div class="col-1">
-            <p>${this.cost}</p>
-          </div>
+          <div class="col-2 offset-10 col-md-1 offset-md-0">
+            <p>$${this.cost}</p>
+            <i class="mdi mdi-delete position-absolute delete-reservation selectable" onclick="app.reservationsController.deleteReservation('${this.id}')"></i>
+           </div>
         </div>
     `
   }
