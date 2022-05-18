@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { tripsService } from "../Services/TripsService.js";
+import { saveState } from "../Utils/LocalStorage.js";
 import { Pop } from "../Utils/Pop.js";
 
 
@@ -24,8 +25,9 @@ export class TripsController {
   constructor() {
     console.log('hello from the trips controller');
     ProxyState.on('trips', _drawTabs)
-    ProxyState.on('activeTrip', _drawTrip)
+    ProxyState.on('trips', saveState)
     ProxyState.on('reservations', _drawTrip)
+    ProxyState.on('activeTrip', _drawTrip)
     _drawTabs()
   }
 

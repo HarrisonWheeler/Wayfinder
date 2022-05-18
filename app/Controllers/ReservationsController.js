@@ -1,10 +1,12 @@
 import { ProxyState } from "../AppState.js";
 import { reservationsService } from "../Services/ReservationsService.js";
+import { saveState } from "../Utils/LocalStorage.js";
 import { Pop } from "../Utils/Pop.js";
 
 
 export class ReservationsController {
   constructor() {
+    ProxyState.on('reservations', saveState)
   }
 
   createReservation(tripId) {
@@ -26,7 +28,7 @@ export class ReservationsController {
         // @ts-ignore
         notes: form.notes.value,
         // @ts-ignore
-        cost: form.cost.value
+        cost: form.cost.valueAsNumber
       }
       reservationsService.createReservation(newReservation)
       Pop.toast('Reservation Created!', 'success')

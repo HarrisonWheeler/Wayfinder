@@ -9,11 +9,9 @@ export class Reservation {
     this.confirmationNumber = data.confirmationNumber
     this.address = data.address
     this.date = data.date
-    this.notes = data.notes
     this.cost = data.cost || 0
   }
 
-  // TODO this template is way too big - need to refactor
   get Template() {
     return /*html*/ `
         <div class="row bg-secondary rounded shadow p-2 mb-2 align-items-center" id="reservations">
@@ -50,8 +48,7 @@ export class Reservation {
       return 'mdi-car'
     }
     if (this.type == "entertainment") {
-      // TODO what does mdi call a ferris wheel
-      return 'mdi-tire'
+      return 'mdi-ferris-wheel'
     }
   }
 }
