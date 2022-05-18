@@ -5,7 +5,10 @@ export class Trip {
   constructor(data) {
     this.id = data.id || generateId()
     this.title = data.title
+    this.notes = data.notes
   }
+
+  // HTML GETTERS
 
   // TODO setting active tab initially works with using isActive bool, but need to set other tabs back to not active
   get Tabs() {
@@ -16,8 +19,6 @@ export class Trip {
     `
   }
 
-  // TODO thinking that we need to split out the content portion - draw the tabContent div, but only draw the inner content when drawing reservations
-
   get TabContent() {
     return /*html*/ `
     <div class="tab-pane fade show" id="nav-${this.id}-tab" role="tabpanel" aria-labelledby="nav-${this.id}-tab">
@@ -27,7 +28,7 @@ export class Trip {
 
   get TripReservations() {
     return /*html*/ `
-    <div class="container-fluid rounded bg-light reservations-height-overflow">
+    <div class="container-fluid bg-light reservations-height-overflow">
         <div class="row p-2">
           <div class="col-1">
             <h6>Type</h6>
@@ -49,17 +50,23 @@ export class Trip {
           </div>
         </div>
         ${this.Reservations}
-    </div>
+      </div>
     <hr class="my-3">
-   ${this.ReservationForm}
+    <div class="container">
+      ${this.ReservationForm}
+      <div class="row total-row mt-5">
+        <div class="col-3 offset-9 d-flex justify-content-end">
+        <h4 class="p-2 me-2">Total: $${this.TotalCost}</h4>
+        </div>
+      </div>
+    </div>
     `
   }
 
   get ReservationForm() {
     return /*html*/ `
     <form onsubmit="app.reservationsController.createReservation('${this.id}')">
-    <div class="container-fluid mt-2">
-     <div class="row align-items-center">
+     <div class="row align-items-center mt-2">
          <div class="col-1">
            <div class="form-group">
              <select class="form-control bg-light" name="type">
@@ -93,28 +100,42 @@ export class Trip {
          </div>
          <div class="col-1">
            <div class="form-group">
-             <input type="number" name="cost" class="form-control bg-light" placeholder="0.00" min="1" max="10000" required>
+             <input type="number" name="cost" class="form-control bg-light" placeholder="0" min="1" max="10000" required>
            </div>
          </div>
          <div class="col-12 d-flex justify-content-end mt-3">
            <button class="btn border bg-light p-0 px-4">Add</button>
          </div>
          <div class="col-12 col-md-6">
-           <div class="form-group">
-             <textarea name="notes" id="notes" class="form-control" placeholder="Notes Here..." minlength="1" maxlength="250" required></textarea>
-           </div>
+
          </div>
         </div>
        </div>
-      </div>
      </form>
     `
   }
 
+  // LOGIC GETTERS
+
+  // Iterates over reservations specific to this trip, and totals the cost
+  get TotalCost() {
+    let total = 0
+    let reservations = this.filterReservations()
+    reservations.forEach(r => total += r.cost)
+    return total
+  }
+
+  // Filters reservations by tripId
   get Reservations() {
     let template = ''
-    let reservations = ProxyState.reservations.filter(r => r.tripId === this.id)
+    let reservations = this.filterReservations()
     reservations.forEach(r => template += r.Template)
     return template
+  }
+
+  // Filters reservations by tripId
+  filterReservations() {
+    let filteredReservations = ProxyState.reservations.filter(r => r.tripId === this.id)
+    return filteredReservations
   }
 }
