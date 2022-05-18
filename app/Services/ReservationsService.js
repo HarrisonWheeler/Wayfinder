@@ -4,7 +4,6 @@ import { Reservation } from "../Models/Reservation.js"
 class ReservationsService {
   createReservation(newReservation) {
     ProxyState.reservations = [new Reservation(newReservation), ...ProxyState.reservations]
-    console.log('proxy state reser', ProxyState.reservations);
   }
 
   deleteReservation(reservationId) {

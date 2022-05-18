@@ -4,8 +4,8 @@ import { loadState } from "./Utils/LocalStorage.js";
 
 class App {
 
-  tripsController = new TripsController()
   reservationsController = new ReservationsController()
+  tripsController = new TripsController()
 }
 
 loadState()

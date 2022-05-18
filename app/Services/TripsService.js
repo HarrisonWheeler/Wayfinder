@@ -3,6 +3,11 @@ import { Trip } from "../Models/Trip.js";
 
 
 class TripsService {
+  addNote(note) {
+    ProxyState.activeTrip.notes = note
+    ProxyState.activeTrip = ProxyState.activeTrip
+  }
+
   createTrip(newTrip) {
     const trip = new Trip(newTrip)
     ProxyState.trips = [...ProxyState.trips, trip]

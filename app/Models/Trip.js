@@ -56,13 +56,15 @@ export class Trip {
       ${this.ReservationForm}
       <div class="row">
         <div class="col-12 col-md-6">
+         <form>
           <div class="form-group mt-2">
             <textarea name="notes" id="notes" class="form-control bg-light" placeholder="Trip Notes Here..."
-            minlength="1" maxlength="250" required></textarea>
+            minlength="1" maxlength="250" required onblur="app.tripsController.addNote()" >${this.notes}</textarea>
           </div>
+         </form>
        </div>
       </div>
-      <div class="row justify-content-between mt-5">
+      <div class="row justify-content-between mt-2">
         <div class="col-3 d-flex align-items-center">
           <i class="mdi mdi-delete mdi-24px selectable" onclick="app.tripsController.deleteTrip('${this.id}')"></i>
         </div>
@@ -72,7 +74,6 @@ export class Trip {
       </div>
      </div>
     </div>
-
     `
   }
 
@@ -145,6 +146,10 @@ export class Trip {
   // Filters reservations by tripId
   filterReservations() {
     let filteredReservations = ProxyState.reservations.filter(r => r.tripId === this.id)
+    // Sorting filtered array by date - newest date first
+    filteredReservations.sort((a, b) => {
+      return a.date > b.date ? 1 : a.date < b.date ? -1 : 0
+    })
     return filteredReservations
   }
 }
