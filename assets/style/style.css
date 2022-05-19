@@ -46,10 +46,10 @@ hr{
   }
 }
 
-/* TODO need to get the input background color dialed in */
-input{
-  background-color: #C4C4C4!important;
-}
+  .overflow-tab{
+    max-width: 408px;
+    overflow-x: auto;
+  }
 
 p{
   margin: 0;

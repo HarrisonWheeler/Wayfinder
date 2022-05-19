@@ -58,7 +58,7 @@ export class Trip {
         <div class="col-12 col-md-6">
          <form>
           <div class="form-group mt-2">
-            <textarea name="notes" id="notes" class="form-control bg-light" placeholder="Trip Notes Here..."
+            <textarea name="notes" id="notes" class="form-control" placeholder="Trip Notes Here..."
             minlength="1" maxlength="250" required onblur="app.tripsController.addNote()" >${this.notes}</textarea>
           </div>
          </form>
@@ -83,7 +83,7 @@ export class Trip {
      <div class="row align-items-center mt-2">
          <div class="col-2 col-md-1">
            <div class="form-group">
-             <select class="form-control bg-light selectable" name="type">
+             <select class="form-control selectable" name="type">
                <option selected disabled>Type</option>
                <option value="hotel">Hotel</option>
                <option value="flight">Flight</option>
@@ -94,31 +94,31 @@ export class Trip {
          </div>
          <div class="col-5 col-md-3">
            <div class="form-group">
-             <input type="text" name="name" class="form-control bg-light" minlength="1" max-length="50" placeholder="Name..." required>
+             <input type="text" name="name" class="form-control" minlength="1" max-length="50" placeholder="Name..." required>
            </div>
          </div>
          <div class="col-5 col-md-3">
            <div class="form-group">
-             <input type="text" name="confirmationNumber" class="form-control bg-light" minlength="1" max-length="50" placeholder="Confirmation..." required>
+             <input type="text" name="confirmationNumber" class="form-control" minlength="1" max-length="50" placeholder="Confirmation..." required>
            </div>
          </div>
          <div class="col-9 col-md-3 mt-2 mt-md-0">
            <div class="form-group">
-             <input type="text" name="address" class="form-control bg-light" minlength="1" max-length="50" placeholder="Address..." required>
+             <input type="text" name="address" class="form-control" minlength="1" max-length="50" placeholder="Address..." required>
            </div>
          </div>
          <div class="col-3 col-md-1 mt-2 mt-md-0">
            <div class="form-group">
-             <input type="date" name="date" class="form-control bg-light" placeholder="date" required>
+             <input type="date" name="date" class="form-control" value="01-01-01" required>
            </div>
          </div>
          <div class="col-3 col-md-1 mt-2 mt-md-0">
            <div class="form-group">
-             <input type="number" name="cost" class="form-control bg-light" placeholder="0" min="1" max="10000" required>
+             <input type="number" name="cost" class="form-control" placeholder="0" min="1" max="10000" required>
            </div>
          </div>
          <div class="col-4 offset-5 offset-md-0 col-md-12 d-flex justify-content-end mt-3">
-           <button class="btn border bg-light p-0 px-4">Add</button>
+           <button class="btn border-dark p-0 px-4 elevation-2">Add</button>
          </div>
        </div>
      </form>
