@@ -114,7 +114,7 @@ export class Trip {
          </div>
          <div class="col-3 col-md-1 mt-2 mt-md-0">
            <div class="form-group">
-             <input type="number" name="cost" class="form-control" placeholder="0" min="1" max="10000" required>
+             <input type="number" name="cost" class="form-control" placeholder="0.00" min="1" max="10000" required>
            </div>
          </div>
          <div class="col-4 offset-5 offset-md-0 col-md-12 d-flex justify-content-end mt-3">
