@@ -1,0 +1,14 @@
+## Requirements: 
+- [X] All trips are rendered on load/reload (can be in tabs or collapsed) 
+- [X] Trips can be Created 
+- [X] Trip creation must include a title limited to 3-15 characters 
+- [X] Trips notes can be added and edited 
+- [X] Trips can be Deleted 
+- [X] Reservations can be added to individual trips 
+- [X] Reservations include a type, name, confirmation number, address, date, and cost 
+- [X] Reservations are sorted by Date 
+- [X] Forms should not submit unless all fields have values 
+- [X] Reservations can be Deleted 
+- [X] Trips show the total cost of all reservations 
+- [X] Users are prompted to confirm any delete 
+- [X] All Data persists through local storage 

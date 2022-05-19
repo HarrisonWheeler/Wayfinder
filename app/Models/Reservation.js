@@ -21,18 +21,21 @@ export class Reservation {
           <div class="col-8 col-md-3">
             <p>${this.name}</p>
           </div>
-          <div class="col-3 col-md-3">
+          <div class="col-3 col-md-3 text-end text-md-start">
             <p>${this.confirmationNumber}</p>
           </div>
-          <div class="col-8 col-md-3">
+          <div class="col-8 col-md-3 p-0 p-md-2 my-2 my-md-0">
             <p>${this.address}</p>
           </div>
-          <div class="col-4 col-md-1">
+          <div class="col-4 col-md-1 text-end text-md-start">
             <p>${this.date}</p>
           </div>
-          <div class="col-2 offset-10 col-md-1 offset-md-0">
-            <p>$${this.cost}</p>
-            <i class="mdi mdi-delete position-absolute delete-reservation selectable" onclick="app.reservationsController.deleteReservation('${this.id}')"></i>
+          <div class="col-6 d-md-none p-0">
+            <i class="mdi mdi-file-document-outline mdi-24px"></i>
+          </div>
+          <div class="col-6 col-md-1 text-center">
+            <p class="text-end text-md-start">$${this.cost}</p>
+            <i class="mdi mdi-delete position-absolute delete-reservation selectable" onclick="app.reservationsController.deleteReservation('${this.id}')" title="Delete Reservation"></i>
            </div>
         </div>
     `

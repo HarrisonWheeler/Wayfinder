@@ -21,14 +21,14 @@ export class Trip {
 
   get TabContent() {
     return /*html*/ `
-    <div class="tab-pane fade show" id="nav-${this.id}-tab" role="tabpanel" aria-labelledby="nav-${this.id}-tab">
+    <div class="tab-pane fade show mobile-height" id="nav-${this.id}-tab" role="tabpanel" aria-labelledby="nav-${this.id}-tab">
     </div>
     `
   }
 
   get TripReservations() {
     return /*html*/ `
-    <div class="container-fluid bg-light reservations-height-overflow">
+    <div class="container-fluid bg-light reservations-height-overflow top-right-rounded">
         <div class="row p-2 mt-2 d-none d-md-flex">
           <div class="col-1 ">
             <h6>Type</h6>
@@ -52,7 +52,7 @@ export class Trip {
         ${this.Reservations}
       </div>
     <hr class="my-3">
-    <div class="container-fluid">
+    <div class="container-fluid bg-light mobile-height">
       ${this.ReservationForm}
       <div class="row">
         <div class="col-12 col-md-6">
@@ -66,9 +66,9 @@ export class Trip {
       </div>
       <div class="row justify-content-between mt-2">
         <div class="col-3 d-flex align-items-center">
-          <i class="mdi mdi-delete mdi-24px selectable" onclick="app.tripsController.deleteTrip('${this.id}')"></i>
+          <i class="mdi mdi-delete mdi-24px selectable" title="Delete Trip" onclick="app.tripsController.deleteTrip('${this.id}')"></i>
         </div>
-        <div class="col-3 d-flex justify-content-end">
+        <div class="col-6 col-md-3 d-flex justify-content-end">
           <h4 class="p-2 me-2">Total: $${this.TotalCost}</h4>
         </div>
       </div>

@@ -33,6 +33,18 @@ hr{
   margin: auto;
 }
 
+.top-right-rounded{
+  border-top-right-radius: .25rem;
+}
+
+@media only screen and (max-width: 568px) {
+    .mobile-height {
+      height: 34vh;
+  }
+    .mobile-container{
+      height: 100vh;
+  }
+}
 
 /* TODO need to get the input background color dialed in */
 input{
