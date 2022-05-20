@@ -2,6 +2,10 @@ import { ProxyState } from "../AppState.js"
 import { Reservation } from "../Models/Reservation.js"
 
 class ReservationsService {
+
+  deleteReservationsByTripId(tripId) {
+    ProxyState.reservations = ProxyState.reservations.filter(r => r.tripId !== tripId)
+  }
   createReservation(newReservation) {
     ProxyState.reservations = [new Reservation(newReservation), ...ProxyState.reservations]
   }

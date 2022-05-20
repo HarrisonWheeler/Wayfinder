@@ -36,7 +36,7 @@ export class Reservation {
           <div class="col-6 col-md-1 text-center">
             <p class="text-end text-md-start">$${this.cost}</p>
             <i class="mdi mdi-delete position-absolute delete-reservation selectable" onclick="app.reservationsController.deleteReservation('${this.id}')" title="Delete Reservation"></i>
-           </div>
+            </div>
         </div>
     `
   }

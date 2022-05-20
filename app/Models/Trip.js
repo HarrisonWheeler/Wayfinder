@@ -10,9 +10,7 @@ export class Trip {
 
   // HTML GETTERS
 
-  // TODO setting active tab initially works with using isActive bool, but need to set other tabs back to not active
   get Tabs() {
-    // TODO change active button bg color to bg-light
     return /*html*/ `
     <button class="nav-link border-bottom-0 border-light me-1" id="nav-${this.id}" data-bs-toggle="tab" data-bs-target="#nav-${this.id}-tab"
     type="button" role="tab" aria-controls="nav-${this.id}" aria-selected="true" onclick="app.tripsController.setActiveTrip('${this.id}')">${this.title}</button>
@@ -65,7 +63,7 @@ export class Trip {
        </div>
       </div>
       <div class="row justify-content-between mt-2">
-        <div class="col-3 d-flex align-items-center">
+        <div class="col-3 d-flex align-items-center on-hover">
           <i class="mdi mdi-delete mdi-24px selectable" title="Delete Trip" onclick="app.tripsController.deleteTrip('${this.id}')"></i>
         </div>
         <div class="col-6 col-md-3 d-flex justify-content-end">
@@ -109,7 +107,7 @@ export class Trip {
          </div>
          <div class="col-3 col-md-1 mt-2 mt-md-0">
            <div class="form-group">
-             <input type="date" name="date" class="form-control" value="01-01-01" required>
+             <input type="date" name="date" class="form-control" required>
            </div>
          </div>
          <div class="col-3 col-md-1 mt-2 mt-md-0">

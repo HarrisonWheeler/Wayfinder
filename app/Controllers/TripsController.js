@@ -16,7 +16,9 @@ function _drawTabs() {
 }
 
 function _drawTrip() {
-  document.getElementById(`nav-${ProxyState.activeTrip.id}-tab`).innerHTML = ProxyState.activeTrip.TripReservations
+  if (ProxyState.activeTrip) {
+    document.getElementById(`nav-${ProxyState.activeTrip.id}-tab`).innerHTML = ProxyState.activeTrip.TripReservations
+  }
 }
 
 
@@ -25,6 +27,7 @@ export class TripsController {
     ProxyState.on('trips', _drawTabs)
     ProxyState.on('trips', saveState)
     ProxyState.on('activeTrip', _drawTrip)
+    ProxyState.on('activeTrip', this.reset)
     ProxyState.on('activeTrip', saveState)
     ProxyState.on('reservations', _drawTrip)
     _drawTabs()
@@ -32,6 +35,13 @@ export class TripsController {
       // @ts-ignore
       document.querySelector('[role="tab"]')?.click()
     }, 100)
+  }
+
+  reset() {
+    if (!ProxyState.activeTrip && !ProxyState.trips.length) {
+      // @ts-ignore
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('create-trip-modal')).toggle()
+    }
   }
 
   createTrip() {
@@ -49,6 +59,7 @@ export class TripsController {
       Pop.toast('Trip Created!', 'success')
       // @ts-ignore
       form.reset()
+      // @ts-ignore
       document.querySelector('[role=tab]:last-child').click()
     } catch (error) {
       console.error(error)
