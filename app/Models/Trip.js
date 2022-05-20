@@ -26,7 +26,7 @@ export class Trip {
 
   get TripReservations() {
     return /*html*/ `
-    <div class="container-fluid bg-light reservations-height-overflow top-right-rounded">
+    <div class="container-fluid bg-light reservations-height-overflow top-right-rounded top-left-square">
         <div class="row p-2 mt-2 d-none d-md-flex">
           <div class="col-1 ">
             <h6>Type</h6>

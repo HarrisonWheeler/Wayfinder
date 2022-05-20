@@ -37,6 +37,10 @@ hr{
   border-top-right-radius: .25rem;
 }
 
+.top-left-square{
+  border-top-left-radius: 0rem!important;
+}
+
 @media only screen and (max-width: 568px) {
     .mobile-height {
       height: 34vh;

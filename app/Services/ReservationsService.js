@@ -7,7 +7,7 @@ class ReservationsService {
     ProxyState.reservations = ProxyState.reservations.filter(r => r.tripId !== tripId)
   }
   createReservation(newReservation) {
-    ProxyState.reservations = [new Reservation(newReservation), ...ProxyState.reservations]
+    ProxyState.reservations = [...ProxyState.reservations, new Reservation(newReservation),]
   }
 
   deleteReservation(reservationId) {
