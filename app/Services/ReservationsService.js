@@ -3,6 +3,7 @@ import { Reservation } from "../Models/Reservation.js"
 
 class ReservationsService {
 
+  // This runs when a trip is deleted - to prevent orphaned data
   deleteReservationsByTripId(tripId) {
     ProxyState.reservations = ProxyState.reservations.filter(r => r.tripId !== tripId)
   }

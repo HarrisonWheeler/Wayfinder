@@ -60,6 +60,7 @@ export class TripsController {
       // @ts-ignore
       form.reset()
       // @ts-ignore
+      // This automatically selects the first tab in the HTML, and runs a click event to show the "active trip" when it's created
       document.querySelector('[role=tab]:last-child').click()
     } catch (error) {
       console.error(error)

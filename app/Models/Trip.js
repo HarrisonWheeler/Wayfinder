@@ -10,6 +10,7 @@ export class Trip {
 
   // HTML GETTERS
 
+  // Tabs - have to draw these to the screen at the same time we draw the TabContent
   get Tabs() {
     return /*html*/ `
     <button class="nav-link border-bottom-0 border-light me-1" id="nav-${this.id}" data-bs-toggle="tab" data-bs-target="#nav-${this.id}-tab"
