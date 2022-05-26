@@ -38,6 +38,7 @@ export class TripsController {
   }
 
   reset() {
+    // If there is no active trip, and also no trips in general, pop modal to create a new trip
     if (!ProxyState.activeTrip && !ProxyState.trips.length) {
       // @ts-ignore
       bootstrap.Modal.getOrCreateInstance(document.getElementById('create-trip-modal')).toggle()
