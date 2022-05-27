@@ -64,7 +64,7 @@ export class Trip {
        </div>
       </div>
       <div class="row justify-content-between mt-2">
-        <div class="col-3 d-flex align-items-center on-hover">
+        <div class="col-3 d-flex align-items-center">
           <i class="mdi mdi-delete mdi-24px selectable" title="Delete Trip" onclick="app.tripsController.deleteTrip('${this.id}')"></i>
         </div>
         <div class="col-6 col-md-3 d-flex justify-content-end">
@@ -82,8 +82,8 @@ export class Trip {
      <div class="row align-items-center mt-2">
          <div class="col-2 col-md-1">
            <div class="form-group">
-             <select class="form-control selectable" name="type">
-               <option selected disabled>Type</option>
+             <select class="form-control selectable" required name="type">
+               <option selected disabled value="">Type</option>
                <option value="hotel">Hotel</option>
                <option value="flight">Flight</option>
                <option value="car">Car</option>
@@ -113,7 +113,7 @@ export class Trip {
          </div>
          <div class="col-3 col-md-1 mt-2 mt-md-0">
            <div class="form-group">
-             <input type="number" name="cost" class="form-control" placeholder="0.00" min="1" max="10000" required>
+             <input type="number" name="cost" class="form-control" placeholder="$0.00" min="1" max="10000" required>
            </div>
          </div>
          <div class="col-4 offset-5 offset-md-0 col-md-12 d-flex justify-content-end mt-3">
