@@ -30,7 +30,6 @@ export class ReservationsController {
       }
       reservationsService.createReservation(newReservation)
       Pop.toast('Reservation Created!', 'success')
-      console.log('new reservation', newReservation)
       // @ts-ignore
       form.reset()
     } catch (error) {

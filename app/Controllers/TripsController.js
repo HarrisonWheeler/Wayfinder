@@ -6,7 +6,6 @@ import { Pop } from "../Utils/Pop.js";
 function _drawTabs() {
   // This is drawing the bootstrap tab, AND the anchor for the tab content to be drawn into
   let tabsTemplate = ''
-  console.log('Trips in AppState', ProxyState.trips);
   ProxyState.trips.forEach(t => tabsTemplate += t.Tabs)
   document.getElementById('nav-tab').innerHTML = tabsTemplate
 
@@ -49,7 +48,6 @@ export class TripsController {
     try {
       window.event.preventDefault()
       let form = window.event.target
-      console.log('form', form);
       const newTrip = {
         // @ts-ignore
         title: form.title.value
@@ -79,7 +77,6 @@ export class TripsController {
         tripsService.deleteTrip(tripId)
         Pop.toast('Trip Deleted!', 'success')
       }
-      console.log(tripId);
     } catch (error) {
       console.error(error)
       Pop.toast(error.message, 'error')
