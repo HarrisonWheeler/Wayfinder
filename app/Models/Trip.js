@@ -93,17 +93,17 @@ export class Trip {
          </div>
          <div class="col-5 col-md-3">
            <div class="form-group">
-             <input type="text" name="name" class="form-control" minlength="1" max-length="50" placeholder="Name..." required>
+             <input type="text" name="name" class="form-control" minlength="1" maxlength="50" placeholder="Name..." required>
            </div>
          </div>
          <div class="col-5 col-md-3">
            <div class="form-group">
-             <input type="text" name="confirmationNumber" class="form-control" minlength="1" max-length="50" placeholder="Confirmation..." required>
+             <input type="text" name="confirmationNumber" class="form-control" minlength="1" maxlength="50" placeholder="Confirmation..." required>
            </div>
          </div>
          <div class="col-9 col-md-3 mt-2 mt-md-0">
            <div class="form-group">
-             <input type="text" name="address" class="form-control" minlength="1" max-length="50" placeholder="Address..." required>
+             <input type="text" name="address" class="form-control" minlength="1" maxlength="50" placeholder="Address..." required>
            </div>
          </div>
          <div class="col-3 col-md-1 mt-2 mt-md-0">

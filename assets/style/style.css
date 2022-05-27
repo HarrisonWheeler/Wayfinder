@@ -16,6 +16,10 @@ h6{
   line-height: 31.58px;
 }
 
+textarea{
+  resize: none;
+}
+
 .reservations-height{
   height: 75vh;
 }
