@@ -129,7 +129,7 @@ export class Trip {
   // Iterates over reservations specific to this trip, and totals the cost
   get TotalCost() {
     let total = 0
-    let reservations = this.filterReservations()
+    let reservations = this.filterAndSortReservations()
     reservations.forEach(r => total += r.cost)
     return total
   }
@@ -137,13 +137,13 @@ export class Trip {
   // Filters reservations by tripId
   get Reservations() {
     let template = ''
-    let reservations = this.filterReservations()
+    let reservations = this.filterAndSortReservations()
     reservations.forEach(r => template += r.Template)
     return template
   }
 
   // Filters reservations by tripId
-  filterReservations() {
+  filterAndSortReservations() {
     let filteredReservations = ProxyState.reservations.filter(r => r.tripId === this.id)
     // Sorting filtered array by date - newest date first
     filteredReservations.sort((a, b) => {
